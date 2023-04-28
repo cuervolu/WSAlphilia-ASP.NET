@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LIBRO">
+          <Key>
+            <PropertyRef Name="ID_LIBRO" />
+          </Key>
+          <Property Name="ID_LIBRO" Type="number" Precision="19" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE_LIBRO" Type="nvarchar2" MaxLength="100" />
+          <Property Name="DESCRIPCION" Type="nclob" />
+          <Property Name="AUTOR" Type="nvarchar2" MaxLength="100" />
+          <Property Name="EDITORIAL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="PRECIO_UNITARIO" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD_DISPONIBLE" Type="number" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="PORTADA" Type="nvarchar2" MaxLength="255" />
+          <Property Name="FECHA_PUBLICACION" Type="date" />
+          <Property Name="CATEGORIA" Type="nvarchar2" MaxLength="150" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="LIBRO" EntityType="Self.LIBRO" Schema="LIBRERIAIMAGINA_IDP" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LIBRO">
+          <Key>
+            <PropertyRef Name="ID_LIBRO" />
+          </Key>
+          <Property Name="ID_LIBRO" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE_LIBRO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AUTOR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EDITORIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PRECIO_UNITARIO" Type="Int64" Nullable="false" />
+          <Property Name="CANTIDAD_DISPONIBLE" Type="Int64" Nullable="false" />
+          <Property Name="PORTADA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FECHA_PUBLICACION" Type="DateTime" />
+          <Property Name="CATEGORIA" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="LibreriaImaginaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LIBRO" EntityType="Self.LIBRO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="LibreriaImaginaEntities">
+          <EntitySetMapping Name="LIBRO">
+            <EntityTypeMapping TypeName="Model.LIBRO">
+              <MappingFragment StoreEntitySet="LIBRO">
+                <ScalarProperty Name="ID_LIBRO" ColumnName="ID_LIBRO" />
+                <ScalarProperty Name="NOMBRE_LIBRO" ColumnName="NOMBRE_LIBRO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="AUTOR" ColumnName="AUTOR" />
+                <ScalarProperty Name="EDITORIAL" ColumnName="EDITORIAL" />
+                <ScalarProperty Name="PRECIO_UNITARIO" ColumnName="PRECIO_UNITARIO" />
+                <ScalarProperty Name="CANTIDAD_DISPONIBLE" ColumnName="CANTIDAD_DISPONIBLE" />
+                <ScalarProperty Name="PORTADA" ColumnName="PORTADA" />
+                <ScalarProperty Name="FECHA_PUBLICACION" ColumnName="FECHA_PUBLICACION" />
+                <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
